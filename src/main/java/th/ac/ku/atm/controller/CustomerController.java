@@ -22,7 +22,7 @@ public class CustomerController {
     @GetMapping
     public String getCustomerPage(Model model){
 
-        model.addAttribute("allCustomer",customerService.getCustomer());
+        model.addAttribute("allCustomer",customerService.getCustomers());
 
         return "customer"; // customer.html templates
     }
@@ -31,7 +31,7 @@ public class CustomerController {
     @PostMapping
     public String registerCustomer(@ModelAttribute Customer customer, Model model){
         customerService.createCustomer(customer);
-        model.addAttribute("allCustomer", customerService.getCustomer());
+        model.addAttribute("allCustomer", customerService.getCustomers());
         return "redirect:customer";
 
     }
