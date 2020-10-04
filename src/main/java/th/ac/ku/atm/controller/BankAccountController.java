@@ -21,17 +21,19 @@ public class BankAccountController {
     }
 
     @GetMapping
-    public String getBankAccounts(Model model){
-        //model.addAttribute("allBankAccounts",bankAccountService.getBankAccounts());
+    public String getBankAccountPage(Model model){
+        model.addAttribute("bankaccounts",bankAccountService.getBankAccount());
         return "bankaccount";
     }
 
+    @PostMapping
+    public String openAccount(@ModelAttribute BankAccount bankAccount, Model model){
+        bankAccountService.openBankAccount(bankAccount);
+        model.addAttribute("bankaccounts", bankAccountService.getBankAccount());
+        return "redirect:bankaccount";
+    }
 
-//    @PostMapping
-//    public String addBankAccount(@ModelAttribute BankAccount bankAccount, Model model){
-//        bankAccountService.createBankAccount(bankAccount);
-//        model.addAttribute("allBankAccounts", bankAccountService.getBankAccounts());
-//        return "redirect:bankaccount";
-//
-//    }
+
+
+
 }
