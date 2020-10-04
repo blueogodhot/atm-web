@@ -57,7 +57,12 @@
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
-
+            <td>
+                <a class="btn btn-primary"
+                   th:href="@{/bankaccount/deposit/{id}(id=${account.id})}">Deposit</a>
+                <a class="btn btn-primary"
+                   th:href="@{/bankaccount/withdraw/{id}(id=${account.id})}">Withdraw</a>
+            </td>
         </tr>
         </tbody>
     </table>
